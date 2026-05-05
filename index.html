@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNF India — Social Media Performance Report | Apr 6 – May 3, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f9f9f9;
+    --surface2: #f2f2f2;
+    --border: #e8e8e8;
+    --border-light: #f0f0f0;
+    --accent: #335A8F;
+    --accent2: #D43668;
+    --accent3: #2ab89e;
+    --accent4: #D94F7A;
+    --accent5: #6889B0;
+    --text: #111111;
+    --muted: #666666;
+    --subtle: #999999;
+    --fb: #335A8F;
+    --ig: #D43668;
+    --li: #2ab89e;
+    --blue-1: #335A8F;
+    --blue-2: #6889B0;
+    --blue-3: #8499B0;
+    --blue-4: #9DAAB8;
+    --blue-5: #B8C3CE;
+    --mag-1: #D43668;
+    --mag-2: #D94F7A;
+    --mag-3: #D8749A;
+    --mag-4: #DA96B4;
+    --mag-5: #E4B5CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 40px 56px 36px;
+  }
+  .header-inner {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 32px;
+  }
+  .org-label {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1.05;
+    letter-spacing: -0.5px;
+  }
+  header h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .header-sub {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--subtle);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  .header-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .period-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--surface);
+  }
+  .platform-pills {
+    display: flex;
+    gap: 6px;
+  }
+  .pill {
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .pill-fb { background: var(--fb); color: #fff; }
+  .pill-ig { background: var(--ig); color: #fff; }
+  .pill-li { background: var(--li); color: #fff; }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 56px;
+    display: flex;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 16px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--subtle);
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+  .tab-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 48px 56px 80px;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .page-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    margin-bottom: 4px;
+  }
+  .page-header p {
+    font-size: 12px;
+    color: var(--subtle);
+    letter-spacing: 0.3px;
+  }
+
+  /* ── EXECUTIVE SUMMARY ── */
+  .exec-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .exec-summary-main {
+    background: var(--bg);
+    padding: 36px 40px;
+  }
+  .exec-summary-main .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .exec-summary-main p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 12px;
+  }
+  .exec-summary-main p:last-child { margin-bottom: 0; }
+  .exec-summary-main strong { color: var(--text); font-weight: 600; }
+  .exec-highlights {
+    background: var(--bg);
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .highlight-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .highlight-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 64px;
+  }
+  .highlight-num.ig { color: var(--ig); }
+  .highlight-num.li { color: var(--li); }
+  .highlight-meta { font-size: 11px; color: var(--subtle); font-weight: 400; }
+  .highlight-label { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+
+  /* ── KPI GRID ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .kpi-card {
+    background: #ffffff;
+    padding: 24px 24px 22px;
+    position: relative;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .kpi-card.fb-c::before, .kpi-card.blue::before { background: var(--fb); }
+  .kpi-card.ig-c::before, .kpi-card.amber::before, .kpi-card.red::before { background: var(--ig); }
+  .kpi-card.li-c::before, .kpi-card.green::before { background: var(--li); }
+  .kpi-card.purple::before { background: var(--blue-2); }
+  .kpi-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--subtle);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .kpi-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+  .kpi-change {
+    font-size: 11px;
+    margin-top: 8px;
+    color: var(--subtle);
+  }
+  .kpi-change.up { color: var(--li); }
+  .kpi-change.down { color: var(--ig); }
+  .kpi-sub {
+    font-size: 11px;
+    color: var(--subtle);
+    margin-top: 4px;
+  }
+
+  /* ── CHART GRID ── */
+  .chart-row { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 24px; }
+  .chart-row-2 { grid-template-columns: 1fr 1fr; }
+  .chart-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .chart-row-1 { grid-template-columns: 1fr; }
+  .chart-card {
+    background: #ffffff;
+    padding: 28px 32px;
+  }
+  .chart-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--subtle);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .chart-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+  .chart-sub {
+    font-size: 12px;
+    color: var(--subtle);
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .chart-container { position: relative; }
+
+  /* ── INSIGHT GRID ── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  .insight-card {
+    background: #ffffff;
+    padding: 28px 32px;
+    position: relative;
+  }
+  .insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+  }
+  .insight-card.warn::before { background: var(--ig); }
+  .insight-card.good::before { background: var(--li); }
+  .insight-card.bad::before { background: var(--accent4); }
+  .insight-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .insight-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .insight-icon svg { width: 14px; height: 14px; fill: #fff; }
+  .insight-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.1px;
+  }
+  .insight-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* ── BAR CHARTS (custom) ── */
+  .bar-list { margin-top: 4px; }
+  .bar-item { margin-bottom: 14px; }
+  .bar-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .bar-item-label { font-size: 12px; color: var(--muted); }
+  .bar-item-val { font-size: 12px; font-weight: 600; color: var(--text); }
+  .bar-track {
+    height: 4px;
+    background: var(--surface2);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill { height: 100%; border-radius: 2px; background: var(--accent); transition: width 0.6s ease; }
+  .bar-fill.ig-bar { background: var(--ig); }
+  .bar-fill.li-bar { background: var(--li); }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--subtle);
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  td {
+    padding: 14px 14px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+    color: var(--muted);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface); }
+  .post-title-cell { max-width: 300px; }
+  .post-title-text {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 500;
+  }
+  .post-date { font-size: 11px; color: var(--subtle); margin-top: 3px; }
+  .metric-val { font-weight: 600; color: var(--text); }
+  .metric-val.high { color: var(--li); }
+  .metric-val.mid { color: var(--ig); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .badge-video { background: rgba(104,137,176,0.1); color: var(--blue-2); }
+  .badge-text { background: rgba(51,90,143,0.08); color: var(--accent); }
+
+  /* ── PLATFORM COMPARE BLOCKS ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .platform-block { background: #ffffff; }
+  .platform-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .platform-name { font-weight: 700; font-size: 13px; letter-spacing: -0.1px; }
+  .platform-count { margin-left: auto; font-size: 11px; color: var(--subtle); }
+  .platform-body { padding: 4px 0; }
+  .p-stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 24px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 12px;
+  }
+  .p-stat:last-child { border-bottom: none; }
+  .p-stat-label { color: var(--subtle); }
+  .p-stat-val { font-weight: 600; color: var(--text); }
+
+  /* ── RECO CARDS ── */
+  .reco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .reco-card { background: #ffffff; padding: 32px 32px; }
+  .reco-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .reco-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: -0.1px; }
+  .reco-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+  /* ── OVERALL SUMMARY CARD ── */
+  .summary-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 36px 40px;
+    margin-bottom: 40px;
+  }
+  .summary-block .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .summary-block h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 14px;
+    letter-spacing: -0.2px;
+  }
+  .summary-block p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 10px;
+  }
+  .summary-block p:last-child { margin-bottom: 0; }
+  .summary-block strong { color: var(--text); font-weight: 600; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 40px 0;
+  }
+
+  /* ── DONUT LEGEND ── */
+  .donut-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .donut-wrap { flex: 0 0 180px; }
+  .donut-legend { flex: 1; min-width: 160px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .legend-label { font-size: 12px; color: var(--muted); flex: 1; }
+  .legend-pct { font-size: 13px; font-weight: 600; color: var(--text); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    header { padding: 28px 24px; }
+    .header-inner { grid-template-columns: 1fr; gap: 20px; }
+    .tab-nav { padding: 0 24px; }
+    main { padding: 32px 24px 64px; }
+    .chart-row-2, .chart-row-3, .compare-grid, .matrix-row { grid-template-columns: 1fr; }
+    .exec-summary { grid-template-columns: 1fr; }
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* FOOTER */
+  .site-footer {
+    text-align: center;
+    padding: 40px 48px 48px;
+    border-top: 1px solid var(--border);
+  }
+  .site-footer p {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+    margin-bottom: 16px;
+  }
+  .site-footer img {
+    display: block;
+    margin: 0 auto;
+    height: 52px;
+    width: auto;
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .social-links a {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .social-links a:hover { background: var(--accent2); }
+  .social-links a svg { width: 16px; height: 16px; fill: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="org-label">Friedrich Naumann Foundation for Freedom · India Office</div>
+      <h1>Social Media <em>Performance</em> Report</h1>
+      <div class="header-sub">Prepared by Tenzin Paljor &ensp;·&ensp; Reporting Period: April 6 – May 3, 2026</div>
+    </div>
+    <div class="header-right">
+      <div class="period-badge">Apr 6 – May 3, 2026 &ensp;·&ensp; 28 Days</div>
+      <div class="platform-pills">
+        <span class="pill pill-fb">Facebook</span>
+        <span class="pill pill-ig">Instagram</span>
+        <span class="pill pill-li">LinkedIn</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ TAB NAV ═══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('overview', this)"><span class="tab-dot" style="background:#335A8F"></span>Overview</button>
+  <button class="tab-btn" onclick="switchTab('facebook', this)"><span class="tab-dot" style="background:#335A8F"></span>Facebook</button>
+  <button class="tab-btn" onclick="switchTab('instagram', this)"><span class="tab-dot" style="background:#D43668"></span>Instagram</button>
+  <button class="tab-btn" onclick="switchTab('linkedin', this)"><span class="tab-dot" style="background:#2ab89e"></span>LinkedIn</button>
+  <button class="tab-btn" onclick="switchTab('audience', this)"><span class="tab-dot" style="background:#6889B0"></span>Audience</button>
+  <button class="tab-btn" onclick="switchTab('recommendations', this)"><span class="tab-dot" style="background:#D43668"></span>Insights & Recommendations</button>
+</nav>
+
+<main>
+
+<!-- ════════════ OVERVIEW ════════════ -->
+<div class="section active" id="tab-overview">
+
+  <!-- Executive Summary -->
+  <div class="exec-summary">
+    <div class="exec-summary-main">
+      <div class="label">Executive Summary</div>
+      <p>This report covers FNF India's social media performance across <strong>Facebook, Instagram, and LinkedIn</strong> from April 6 to May 3, 2026 — coinciding with the <strong>FNF India Delegation's four-city Europe Tour</strong> (Brussels, Hamburg, Frankfurt, Stuttgart) and the <strong>Dalai Lama's 90th Birthday</strong> celebrations.</p>
+      <p><strong>Instagram and LinkedIn are the primary growth drivers.</strong> Facebook remains our most-followed platform (10,075 followers) but shows audience saturation and limited engagement depth. LinkedIn is delivering the highest-quality engagement from professionals in India, Germany, and Europe — directly aligned with FNF India's programmatic priorities.</p>
+      <p><strong>Key highlight:</strong> Instagram views surged to 53.8K (+46.2%) and LinkedIn impressions spiked on Apr 27 (515) and Apr 29 (777), driven by Europe tour content.</p>
+    </div>
+    <div class="exec-highlights">
+      <div class="highlight-item">
+        <div>
+          <div class="highlight-num">53.8K</div>
+          <div class="highlight-meta">IG Views</div>
+        </div>
+        <div>
+          <div class="highlight-label" style="color:var(--ig)">↑ +46.2% vs prev period</div>
+          <div class="highlight-meta">Driven by Europe Tour coverage & Brussels delegation content</div>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div>
+          <div class="highlight-num li">777</div>
+          <div class="highlight-meta">LI Peak Impr.</div>
+        </div>
+        <div>
+          <div class="highlight-label" style="color:var(--li)">Apr 29 — Dalai Lama Frankfurt</div>
+          <div class="highlight-meta">84.8% engagement rate on Brussels delegation post</div>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div>
+          <div class="highlight-num">3,843</div>
+          <div class="highlight-meta">FB Views</div>
+        </div>
+        <div>
+          <div class="highlight-label" style="color:var(--fb)">↑ +21% vs prev period</div>
+          <div class="highlight-meta">Carousels dominate at 58.4% of all views</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card fb-c">
+      <div class="kpi-label">FB Total Views</div>
+      <div class="kpi-value">3,843</div>
+      <div class="kpi-change up">↑ 21% vs prev period</div>
+      <div class="kpi-sub">7 Apr – 4 May</div>
+    </div>
+    <div class="kpi-card fb-c">
+      <div class="kpi-label">FB Engagement</div>
+      <div class="kpi-value">208</div>
+      <div class="kpi-change up">↑ 26.8% vs prev period</div>
+      <div class="kpi-sub">77 reactions · 14 shares</div>
+    </div>
+    <div class="kpi-card fb-c">
+      <div class="kpi-label">FB Followers</div>
+      <div class="kpi-value">10,075</div>
+      <div class="kpi-change">→ +0.0% growth</div>
+      <div class="kpi-sub">Net +5 follows</div>
+    </div>
+    <div class="kpi-card ig-c">
+      <div class="kpi-label">IG Total Views</div>
+      <div class="kpi-value">53.8K</div>
+      <div class="kpi-change up">↑ 46.2% vs prev period</div>
+      <div class="kpi-sub">Apr 6 – May 3</div>
+    </div>
+    <div class="kpi-card ig-c">
+      <div class="kpi-label">IG Reach</div>
+      <div class="kpi-value">8K</div>
+      <div class="kpi-change down">↓ 16.4% vs prev period</div>
+      <div class="kpi-sub">576 from followers</div>
+    </div>
+    <div class="kpi-card ig-c">
+      <div class="kpi-label">IG Interactions</div>
+      <div class="kpi-value">1K</div>
+      <div class="kpi-change down">↓ 34.9% vs prev period</div>
+      <div class="kpi-sub">69% from non-followers</div>
+    </div>
+    <div class="kpi-card li-c">
+      <div class="kpi-label">LI Impressions</div>
+      <div class="kpi-value">4,610</div>
+      <div class="kpi-change up">↑ Strong growth</div>
+      <div class="kpi-sub">Apr 4 – May 3, all organic</div>
+    </div>
+    <div class="kpi-card li-c">
+      <div class="kpi-label">LI Total Clicks</div>
+      <div class="kpi-value">1,714</div>
+      <div class="kpi-change up">↑ High click activity</div>
+      <div class="kpi-sub">Peak: Apr 29 (211 clicks)</div>
+    </div>
+    <div class="kpi-card li-c">
+      <div class="kpi-label">LI Top Eng. Rate</div>
+      <div class="kpi-value">84.8%</div>
+      <div class="kpi-change up">↑ Apr 24 (Brussels)</div>
+      <div class="kpi-sub">Avg daily ~0.28%</div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-1">
+    <div class="chart-card">
+      <div class="chart-label">Platform Comparison</div>
+      <div class="chart-title">Cross-Platform Performance Overview</div>
+      <div class="chart-sub">Instagram vs Facebook views vs LinkedIn impressions — reporting period total</div>
+      <div class="chart-container" style="height:240px">
+        <canvas id="overviewCompare"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-3">
+    <div class="chart-card">
+      <div class="chart-label">Facebook</div>
+      <div class="chart-title">Views by Content Type</div>
+      <div class="chart-sub">Multi-photo carousels dominate</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="fbContentType"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Instagram</div>
+      <div class="chart-title">Published Content Mix</div>
+      <div class="chart-sub">Stories vs Posts volume</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="igContentMix"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Audience Split</div>
+      <div class="chart-title">Followers vs Non-Followers Traffic</div>
+      <div class="chart-sub">How reach is distributed</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="followersDonut"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><div class="insight-title">Instagram is the Growth Engine</div></div>
+      <div class="insight-text">With 53.8K views (+46.2%), Instagram is clearly the highest-reach platform. The 81.4% of views from non-followers signals strong content discoverability — content is breaking through to new audiences beyond just the existing community.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div><div class="insight-title">Europe Tour Drove All Platforms</div></div>
+      <div class="insight-text">The Brussels, Hamburg, and Frankfurt delegation events created clear spikes across all three platforms — most visible in LinkedIn (Apr 24–29) and Instagram (Apr 20–27). Policy-focused, event-driven content consistently outperformed all other post types.</div>
+    </div>
+    <div class="insight-card warn">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div><div class="insight-title">Facebook Growth Has Plateaued</div></div>
+      <div class="insight-text">With 10,075 followers and +0.0% growth, Facebook is stagnant. While engagement improved (+26.8%), 3-second video views fell -58% and 1-minute views fell -88%, indicating video content is not being consumed deeply on this platform.</div>
+    </div>
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg></div><div class="insight-title">LinkedIn Quality Engagement is High</div></div>
+      <div class="insight-text">The Brussels delegation post achieved a 65.6% engagement rate. The Hamburg Trade Conference post saw 547 clicks from 1,188 impressions (46% CTR). LinkedIn is clearly the most effective channel for reaching policymakers and professionals.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ FACEBOOK ════════════ -->
+<div class="section" id="tab-facebook">
+  <div class="page-header">
+    <h2>Facebook Performance</h2>
+    <p>7 April – 4 May 2026 &ensp;·&ensp; Page: FNF India</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card blue">
+      <div class="kpi-label">Total Views</div>
+      <div class="kpi-value">3,843</div>
+      <div class="kpi-change up">↑ 21% from prev 28 days</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">3-Second Views</div>
+      <div class="kpi-value">107</div>
+      <div class="kpi-change down">↓ 58% from prev period</div>
+      <div class="kpi-sub">Video drop-off is steep</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">1-Minute Views</div>
+      <div class="kpi-value">3</div>
+      <div class="kpi-change down">↓ 88% from prev period</div>
+      <div class="kpi-sub">Very low watch depth</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Watch Time</div>
+      <div class="kpi-value">30m 41s</div>
+      <div class="kpi-change down">↓ 81% from prev period</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Total Engagement</div>
+      <div class="kpi-value">208</div>
+      <div class="kpi-change up">↑ 26.8% from prev period</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Reactions</div>
+      <div class="kpi-value">77</div>
+      <div class="kpi-sub">No comments this period</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Shares</div>
+      <div class="kpi-value">14</div>
+      <div class="kpi-sub">Good amplification signal</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Total Followers</div>
+      <div class="kpi-value">10,075</div>
+      <div class="kpi-change">→ 0.0% growth</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Page Visits</div>
+      <div class="kpi-value">244</div>
+      <div class="kpi-change up">↑ 23.2% from prev period</div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-1">
+    <div class="chart-card">
+      <div class="chart-label">Trend</div>
+      <div class="chart-title">Daily Views & Engagement</div>
+      <div class="chart-sub">Views spiked around Apr 15–16 and Apr 26–28; engagement peaked mid–late April driven by delegation content</div>
+      <div class="chart-container" style="height:260px">
+        <canvas id="fbViewsChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Content Performance</div>
+      <div class="chart-title">Views by Content Type</div>
+      <div class="chart-sub">Multi-photo carousels account for 58.4% of all views</div>
+      <div class="chart-container" style="height:240px">
+        <canvas id="fbContentTypeDetail"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Discovery</div>
+      <div class="chart-title">Traffic Sources to Page</div>
+      <div class="chart-sub">How people are discovering FNF India's Facebook page</div>
+      <div class="bar-list" style="margin-top:24px">
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Your Page (direct)</span><span class="bar-item-val">30.7%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:30.7%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Unavailable / Other</span><span class="bar-item-val">24.5%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:24.5%; opacity:0.5"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Reels</span><span class="bar-item-val">24.3%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:24.3%; background:var(--ig)"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Feed (Home)</span><span class="bar-item-val">~20%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:20%; background:var(--li)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Audience Reach</div>
+      <div class="chart-title">Followers vs Non-Followers Views</div>
+      <div class="chart-sub">64.7% of views are from existing followers — limited organic discovery</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="fbFollowerSplit"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Follower Acquisition</div>
+      <div class="chart-title">Net Follows by Content Type (Lifetime)</div>
+      <div class="chart-sub">Posts drive 91.5% of all new follows; Reels account for 8.5%</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="fbFollowSource"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card warn">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M22 8V2L2 22h6l4.5-4.5L22 8z M3.41 2H2v1.41L20.59 22H22v-1.41L3.41 2z"/></svg></div><div class="insight-title">Video Content Not Landing on Facebook</div></div>
+      <div class="insight-text">Despite views being up 21%, video metrics crashed: 3-second views fell 58%, 1-minute views down 88%, and total watch time dropped 81%. Videos are being scrolled past — either the hook isn't strong enough or Facebook's algorithm is limiting Reel distribution to this audience.</div>
+    </div>
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div><div class="insight-title">Carousels Are the Winning Format</div></div>
+      <div class="insight-text">Multi-photo content claims 58.4% of all views — nearly 3x the next-best format (Photo at 13.4%). This confirms that the carousel format is FNF India's most effective content type on Facebook. Doubling down here is a no-brainer.</div>
+    </div>
+    <div class="insight-card bad">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div><div class="insight-title">Zero Comments — A Conversation Gap</div></div>
+      <div class="insight-text">0 comments in the entire reporting period is a critical signal. The audience is not finding content compelling enough to respond to. Comments signal algorithmic trust; their absence limits organic reach. Strategy should experiment with direct questions and calls to action.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ INSTAGRAM ════════════ -->
+<div class="section" id="tab-instagram">
+  <div class="page-header">
+    <h2>Instagram Performance</h2>
+    <p>April 6 – May 3, 2026 &ensp;·&ensp; Business Account &ensp;·&ensp; 2,491 Followers</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card purple">
+      <div class="kpi-label">Total Views</div>
+      <div class="kpi-value">53.8K</div>
+      <div class="kpi-change up">↑ 46.2% from prev period</div>
+      <div class="kpi-sub">53,337 from Instagram</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Reach</div>
+      <div class="kpi-value">8K</div>
+      <div class="kpi-change down">↓ 16.4% from prev period</div>
+      <div class="kpi-sub">7,455 from non-followers</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">Content Interactions</div>
+      <div class="kpi-value">1K</div>
+      <div class="kpi-change down">↓ 34.9% from prev period</div>
+      <div class="kpi-sub">69% from non-followers</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Follows (New)</div>
+      <div class="kpi-value">62</div>
+      <div class="kpi-change up">↑ 8.8% vs prev period</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">Unfollows</div>
+      <div class="kpi-value">62</div>
+      <div class="kpi-change down">↑ 17% (increasing)</div>
+      <div class="kpi-sub">Net follower growth = 0</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Stories Published</div>
+      <div class="kpi-value">58</div>
+      <div class="kpi-change up">+184% vs prev period</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Posts Published</div>
+      <div class="kpi-value">13</div>
+      <div class="kpi-sub">Main feed content</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">From Followers (Views)</div>
+      <div class="kpi-value">18.6%</div>
+      <div class="kpi-change up">↑ 13.7%</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Non-Follower Views</div>
+      <div class="kpi-value">81.4%</div>
+      <div class="kpi-sub">High discovery reach</div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-1">
+    <div class="chart-card">
+      <div class="chart-label">Trend</div>
+      <div class="chart-title">Instagram Views Over Time — Apr 6 to May 3, 2026</div>
+      <div class="chart-sub">Strong peak around Apr 21–27 aligns with Brussels & Hamburg delegation events; Apr 13 spike from EU–India policy content</div>
+      <div class="chart-container" style="height:260px">
+        <canvas id="igViewsChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Top Posts</div>
+      <div class="chart-title">Top Posts by Views</div>
+      <div class="chart-sub">Apr 6 – May 3 · Top 5 performing Instagram posts</div>
+      <div class="bar-list" style="margin-top:16px">
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">🥇 "At yesterday's Politics & Pretzels…" (Apr 22)</span><span class="bar-item-val">12.2K</span></div>
+          <div class="bar-track"><div class="bar-fill ig-bar" style="width:100%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">🥈 India meets Europe in Brussels (Apr 24)</span><span class="bar-item-val">8.9K</span></div>
+          <div class="bar-track"><div class="bar-fill ig-bar" style="width:72.9%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">🥉 "The Mother of All Deals" — EU–India (Apr 13)</span><span class="bar-item-val">8.0K</span></div>
+          <div class="bar-track"><div class="bar-fill ig-bar" style="width:65.5%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Rückblick — inspirierenden Tag (Apr 27)</span><span class="bar-item-val">4.1K</span></div>
+          <div class="bar-track"><div class="bar-fill ig-bar" style="width:33.6%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-item-header"><span class="bar-item-label">Freedom. Compassion. Responsibility. (Apr 21)</span><span class="bar-item-val">3.1K</span></div>
+          <div class="bar-track"><div class="bar-fill ig-bar" style="width:25.4%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Audience Split</div>
+      <div class="chart-title">Follower vs Non-Follower Split</div>
+      <div class="chart-sub">Views, Reach, and Interactions breakdown by audience type</div>
+      <div class="chart-container" style="height:240px">
+        <canvas id="igAudienceSplit"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Content Volume</div>
+      <div class="chart-title">Stories vs Posts Published</div>
+      <div class="chart-sub">Stories are 4.5× more in volume (58 vs 13), up 184% vs previous period</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="igContentVol"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Reach Sources</div>
+      <div class="chart-title">Where the 8K Reach is Coming From</div>
+      <div class="chart-sub">Followers vs non-followers breakdown</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="igReachSplit"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><div class="insight-title">Views Are Surging — Algorithm Favouring Content</div></div>
+      <div class="insight-text">A 46.2% surge in views to 53.8K is exceptional. With 81.4% of views coming from non-followers, Instagram's algorithm is actively surfacing FNF India content to new users — a strong signal that content quality and topic relevance is working. The Europe tour content drove massive discovery.</div>
+    </div>
+    <div class="insight-card warn">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></div><div class="insight-title">High Views but Declining Interactions — Conversion Gap</div></div>
+      <div class="insight-text">Despite 53.8K views, interactions fell 34.9% to ~1K. Content is being seen but not actively engaged with (liked, commented, saved). Stronger CTAs, interactive stories (polls, questions), and more relatable captions could help close this gap.</div>
+    </div>
+    <div class="insight-card bad">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg></div><div class="insight-title">Follower Growth Stalled — Follows = Unfollows</div></div>
+      <div class="insight-text">62 new follows and 62 unfollows means net zero growth. Given the high non-follower reach, the conversion rate from viewer to follower is very low. With strong discovery numbers, converting those viewers into followers should be the #1 priority next cycle.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ LINKEDIN ════════════ -->
+<div class="section" id="tab-linkedin">
+  <div class="page-header">
+    <h2>LinkedIn Performance</h2>
+    <p>April 4 – May 3, 2026 &ensp;·&ensp; FNF India Office Page &ensp;·&ensp; All Organic, No Sponsored Content</p>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card blue">
+      <div class="kpi-label">Total Impressions</div>
+      <div class="kpi-value">4,610</div>
+      <div class="kpi-change up">↑ Driven by Europe tour</div>
+      <div class="kpi-sub">100% organic, zero paid</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Total Clicks</div>
+      <div class="kpi-value">1,714</div>
+      <div class="kpi-change up">↑ Exceptionally high CTR</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-label">Total Reactions</div>
+      <div class="kpi-value">168</div>
+      <div class="kpi-sub">Across all posts</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Peak Day (Impressions)</div>
+      <div class="kpi-value">777</div>
+      <div class="kpi-sub">Apr 29 — Dalai Lama event</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Best Eng. Rate</div>
+      <div class="kpi-value">84.8%</div>
+      <div class="kpi-sub">Apr 24 — Brussels post</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Total Reposts</div>
+      <div class="kpi-value">1</div>
+      <div class="kpi-sub">Apr 29 content</div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-1">
+    <div class="chart-card">
+      <div class="chart-label">Trend</div>
+      <div class="chart-title">LinkedIn Daily Impressions & Clicks — Apr 4 to May 3, 2026</div>
+      <div class="chart-sub">Clear peaks on Apr 15 (talent migration CFP), Apr 21 (Frankfurt event invite), Apr 24 (Brussels delegation), Apr 27 (Hamburg Trade Conference), and Apr 29 (Dalai Lama programme)</div>
+      <div class="chart-container" style="height:280px">
+        <canvas id="liImpressionsChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Engagement</div>
+      <div class="chart-title">Daily Engagement Rate (%)</div>
+      <div class="chart-sub">Spikes directly correspond to major event posts</div>
+      <div class="chart-container" style="height:220px">
+        <canvas id="liEngRate"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Reactions</div>
+      <div class="chart-title">Reactions by Day</div>
+      <div class="chart-sub">Apr 29 saw highest single-day reaction count (26) — the Dalai Lama Frankfurt programme</div>
+      <div class="chart-container" style="height:220px">
+        <canvas id="liReactions"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card" style="border:1px solid var(--border); margin-bottom:24px">
+    <div class="chart-label">Post Performance</div>
+    <div class="chart-title">Top LinkedIn Posts by Engagement</div>
+    <div class="chart-sub">Apr 4 – May 3, 2026 · All organic posts</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:38%">Post</th>
+            <th>Date</th>
+            <th>Impr.</th>
+            <th>Clicks</th>
+            <th>Reactions</th>
+            <th>Eng. Rate</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">FNF India Delegation commenced Europe outreach in Brussels — panel with Marie-Agnes Strack-Zimmermann & MP Sujeet Kumar</div><div class="post-date">24 Apr 2026</div></td>
+            <td>Apr 24</td>
+            <td class="metric-val">646</td>
+            <td class="metric-val high">397</td>
+            <td class="metric-val">23</td>
+            <td class="metric-val high">65.6%</td>
+            <td><span class="badge badge-text">Article</span></td>
+          </tr>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">Freedom, Compassion, Responsibility — Frankfurt event invite for Dalai Lama 90th Birthday programme</div><div class="post-date">21 Apr 2026</div></td>
+            <td>Apr 21</td>
+            <td class="metric-val">527</td>
+            <td class="metric-val high">343</td>
+            <td class="metric-val">23</td>
+            <td class="metric-val high">69.8%</td>
+            <td><span class="badge badge-text">Event</span></td>
+          </tr>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">Hamburg Trade Conference 2026 — Stefan Schott & Nupur Hasija present India Superpower survey findings</div><div class="post-date">27 Apr 2026</div></td>
+            <td>Apr 27</td>
+            <td class="metric-val">1,188</td>
+            <td class="metric-val high">547</td>
+            <td class="metric-val">13</td>
+            <td class="metric-val mid">47.4%</td>
+            <td><span class="badge badge-text">Article</span></td>
+          </tr>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">Dalai Lama 90th Birthday Frankfurt programme recap — Prof. Samdhong Rinpoche, Prof. Roland Koch, MP Sujeet Kumar</div><div class="post-date">29 Apr 2026</div></td>
+            <td>Apr 29</td>
+            <td class="metric-val">394</td>
+            <td class="metric-val">63</td>
+            <td class="metric-val">19</td>
+            <td class="metric-val mid">21.0%</td>
+            <td><span class="badge badge-text">Article</span></td>
+          </tr>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">Global Competition for Talent — CFP for research on Indian skilled migration to Germany vs US, Canada, UK, Australia</div><div class="post-date">15 Apr 2026</div></td>
+            <td>Apr 15</td>
+            <td class="metric-val">566</td>
+            <td class="metric-val">165</td>
+            <td class="metric-val">4</td>
+            <td class="metric-val">30.2%</td>
+            <td><span class="badge badge-text">CFP</span></td>
+          </tr>
+          <tr>
+            <td class="post-title-cell"><div class="post-title-text">Prof. Samdhong Rinpoche video — early days of FNF–CTA partnership</div><div class="post-date">29 Apr 2026</div></td>
+            <td>Apr 29</td>
+            <td class="metric-val">303</td>
+            <td class="metric-val">24</td>
+            <td class="metric-val">9</td>
+            <td class="metric-val">11.2%</td>
+            <td><span class="badge badge-video">Video</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><div class="insight-title">LinkedIn is Punching Above Its Weight</div></div>
+      <div class="insight-text">With engagement rates between 21%–65% on top posts, FNF India's LinkedIn is performing extraordinarily well. The Hamburg post's 46% CTR (547 clicks from 1,188 impressions) is exceptional even by B2B LinkedIn standards. The policy-focused professional audience is highly engaged with FNF India's European partnership work.</div>
+    </div>
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div><div class="insight-title">Long-form Articles Outperform Videos</div></div>
+      <div class="insight-text">Every top-performing LinkedIn post was a detailed article/text post — not a video or short-form. The Brussels (65.6% eng.) and Frankfurt event invite (69.8% eng.) posts were text-heavy narratives. LinkedIn's professional audience responds to depth and substance.</div>
+    </div>
+    <div class="insight-card warn">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div><div class="insight-title">Zero Comments Across All Posts</div></div>
+      <div class="insight-text">Similar to Facebook, LinkedIn saw zero comments across the entire reporting period. High click rates suggest people are consuming content externally (clicking links), but the conversation isn't happening on LinkedIn itself. Asking explicit questions and tagging relevant European partners could stimulate discussion.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ AUDIENCE ════════════ -->
+<div class="section" id="tab-audience">
+  <div class="page-header">
+    <h2>Audience Demographics</h2>
+    <p>Lifetime data across Facebook and Instagram &ensp;·&ensp; LinkedIn audience inferred from post engagement patterns</p>
+  </div>
+
+  <div class="compare-grid" style="margin-bottom:24px">
+    <div class="platform-block">
+      <div class="platform-header" style="border-top:3px solid var(--fb)">
+        <svg style="width:18px;height:18px;fill:var(--fb);flex-shrink:0" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        <span class="platform-name" style="color:var(--fb)">Facebook</span>
+        <span class="platform-count">10,075 followers</span>
+      </div>
+      <div class="platform-body">
+        <div class="p-stat"><span class="p-stat-label">Top Age Group</span><span class="p-stat-val">25–34 (50.8%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Second Age Group</span><span class="p-stat-val">35–44 (29.2%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">18–24 segment</span><span class="p-stat-val">4% (underrepresented)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Top Country</span><span class="p-stat-val">India (29.3%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">2nd Country</span><span class="p-stat-val">Pakistan (26.7%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">3rd Country</span><span class="p-stat-val">Bangladesh (16.7%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Top City</span><span class="p-stat-val">Dhaka (25.8%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Gender split</span><span class="p-stat-val">Mixed (Women shown larger)</span></div>
+      </div>
+    </div>
+    <div class="platform-block">
+      <div class="platform-header" style="border-top:3px solid var(--ig)">
+        <svg style="width:18px;height:18px;fill:var(--ig);flex-shrink:0" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        <span class="platform-name" style="color:var(--ig)">Instagram</span>
+        <span class="platform-count">2,491 followers</span>
+      </div>
+      <div class="platform-body">
+        <div class="p-stat"><span class="p-stat-label">Top Age Group</span><span class="p-stat-val">25–34 (~55%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">35–44 segment</span><span class="p-stat-val">~22%</span></div>
+        <div class="p-stat"><span class="p-stat-label">18–24 segment</span><span class="p-stat-val">~15% (higher than FB)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Top Country</span><span class="p-stat-val">India (45.8%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">2nd Country</span><span class="p-stat-val">Pakistan (10.8%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">3rd Country</span><span class="p-stat-val">Germany (8.4%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Top City</span><span class="p-stat-val">Delhi, India (10.6%)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Gender split</span><span class="p-stat-val">Men 51.4% / Women 48.6%</span></div>
+      </div>
+    </div>
+    <div class="platform-block">
+      <div class="platform-header" style="border-top:3px solid var(--li)">
+        <svg style="width:18px;height:18px;fill:var(--li);flex-shrink:0" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <span class="platform-name" style="color:var(--li)">LinkedIn</span>
+        <span class="platform-count">Engagement data</span>
+      </div>
+      <div class="platform-body">
+        <div class="p-stat"><span class="p-stat-label">Top Audience</span><span class="p-stat-val">Professionals / Policy</span></div>
+        <div class="p-stat"><span class="p-stat-label">Inferred top geo</span><span class="p-stat-val">India + Germany</span></div>
+        <div class="p-stat"><span class="p-stat-label">Post reach type</span><span class="p-stat-val">All followers (organic)</span></div>
+        <div class="p-stat"><span class="p-stat-label">Brussels post reach</span><span class="p-stat-val">India + Europe</span></div>
+        <div class="p-stat"><span class="p-stat-label">Hamburg post reach</span><span class="p-stat-val">Trade/policy community</span></div>
+        <div class="p-stat"><span class="p-stat-label">Sponsored content</span><span class="p-stat-val">None — 100% organic</span></div>
+        <div class="p-stat"><span class="p-stat-label">Content type pref.</span><span class="p-stat-val">Long-form articles</span></div>
+        <div class="p-stat"><span class="p-stat-label">Avg engagement rate</span><span class="p-stat-val">~0.28% daily avg</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Facebook</div>
+      <div class="chart-title">Top Countries by Audience</div>
+      <div class="chart-sub">Lifetime audience distribution by country</div>
+      <div class="bar-list" style="margin-top:16px">
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇮🇳 India</span><span class="bar-item-val">29.3%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇵🇰 Pakistan</span><span class="bar-item-val">26.7%</span></div><div class="bar-track"><div class="bar-fill" style="width:91.1%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇧🇩 Bangladesh</span><span class="bar-item-val">16.7%</span></div><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇳🇵 Nepal</span><span class="bar-item-val">8.9%</span></div><div class="bar-track"><div class="bar-fill" style="width:30.4%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇧🇹 Bhutan</span><span class="bar-item-val">3.6%</span></div><div class="bar-track"><div class="bar-fill" style="width:12.3%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇺🇸 United States</span><span class="bar-item-val">3.6%</span></div><div class="bar-track"><div class="bar-fill" style="width:12.3%; opacity:0.6"></div></div></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Instagram</div>
+      <div class="chart-title">Top Countries by Audience</div>
+      <div class="chart-sub">Lifetime follower distribution by country</div>
+      <div class="bar-list" style="margin-top:16px">
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇮🇳 India</span><span class="bar-item-val">45.8%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:100%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇵🇰 Pakistan</span><span class="bar-item-val">10.8%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:23.6%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇩🇪 Germany</span><span class="bar-item-val">8.4%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:18.3%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇳🇵 Nepal</span><span class="bar-item-val">5.1%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:11.1%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇺🇸 United States</span><span class="bar-item-val">3.0%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:6.5%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇱🇰 Sri Lanka</span><span class="bar-item-val">2.6%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:5.7%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇬🇧 United Kingdom</span><span class="bar-item-val">2.4%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:5.2%"></div></div></div>
+        <div class="bar-item"><div class="bar-item-header"><span class="bar-item-label">🇧🇩 Bangladesh</span><span class="bar-item-val">2.2%</span></div><div class="bar-track"><div class="bar-fill ig-bar" style="width:4.8%"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row chart-row-2">
+    <div class="chart-card">
+      <div class="chart-label">Facebook</div>
+      <div class="chart-title">Age Distribution</div>
+      <div class="chart-sub">Predominantly mature professionals aged 25–44</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="fbAgeChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Instagram</div>
+      <div class="chart-title">Age Distribution</div>
+      <div class="chart-sub">Slightly younger — stronger 25–34 peak with better 18–24 representation</div>
+      <div class="chart-container" style="height:200px">
+        <canvas id="igAgeChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="insight-card warn">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div><div class="insight-title">Facebook Audience Doesn't Match FNF India's Core Target</div></div>
+      <div class="insight-text">Facebook's top cities are Dhaka (25.8%), Kathmandu (13.5%), and Delhi (11.7%) — with Pakistan at 26.7% of total audience. While South Asian reach is valuable for issue awareness, FNF India's programmatic focus on India–Europe policy and liberal governance doesn't directly serve audiences in Bangladesh and Pakistan.</div>
+    </div>
+    <div class="insight-card good">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><div class="insight-title">Instagram's Germany Audience is a Strategic Asset</div></div>
+      <div class="insight-text">Germany appearing as the 3rd-largest country on Instagram (8.4%) is highly valuable. Given FNF's German identity and FNF India's EU–India work, this audience directly aligns with programmatic goals. Berlin (1.5%) is among the top cities. This audience should be nurtured with EU–India partnership content.</div>
+    </div>
+    <div class="insight-card">
+      <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="insight-title">25-34 Core Audience Consistent Across Platforms</div></div>
+      <div class="insight-text">Both Facebook (50.8%) and Instagram (~55%) show the 25–34 age group as dominant. This is the educated young professional segment — ideal for FNF India's liberal democracy, policy, and education messaging. Content designed for early-career professionals should continue to perform well.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ RECOMMENDATIONS ════════════ -->
+<div class="section" id="tab-recommendations">
+  <div class="page-header">
+    <h2>Strategic Insights & Recommendations</h2>
+    <p>Analysis-based recommendations for the next reporting cycle &ensp;·&ensp; May–June 2026</p>
+  </div>
+
+  <div class="summary-block">
+    <div class="label">Overall Assessment</div>
+    <h3>FNF India's social media is on an upward trajectory — but conversion needs attention.</h3>
+    <p>Performance in April–May 2026 is driven primarily by high-value event content from the Europe Delegation Tour. The portfolio now has a clear two-tier structure: <strong>Instagram and LinkedIn are growth platforms</strong> where reach and engagement quality are strong; <strong>Facebook is a legacy platform</strong> with a large but stagnant follower base and declining video metrics.</p>
+    <p>The most important takeaway: <strong>event-driven, substantive, long-form content consistently outperforms</strong> all other content types across all three platforms. The Brussels delegation post (LinkedIn: 65.6% eng. rate), Hamburg Trade Conference post (547 clicks), and "Politics & Pretzels" Instagram post (12.2K views) are all rooted in real, high-stakes programmatic work — not manufactured social media content.</p>
+    <p>The challenge going forward is <strong>maintaining content quality consistency outside of major event windows</strong>, and converting high view numbers into active community engagement (comments, saves, shares).</p>
+  </div>
+
+  <div class="reco-grid" style="margin-bottom:24px">
+    <div class="reco-card">
+      <div class="reco-num">01 —</div>
+      <div class="reco-title">Double Down on Carousels (FB) and Stories (IG)</div>
+      <div class="reco-text">Facebook data confirms multi-photo carousels account for 58.4% of all views. Instagram published 58 stories (+184% vs prior period) — this volume is working. Continue using stories for real-time event updates and carousels for structured policy explainers. Reels on Facebook should be deprioritized given the steep drop in video watch metrics.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-num">02 —</div>
+      <div class="reco-title">Invest in LinkedIn Long-form Content</div>
+      <div class="reco-text">LinkedIn's best performers were all long, substantive articles with narrative depth — not short captions or reposts. Allocate time to write proper 200–400 word LinkedIn posts for every major FNF India event or publication. The engagement rate payoff is enormous (65%+). Tag European partner organizations and speakers to extend reach organically.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-num">03 —</div>
+      <div class="reco-title">Add Calls-to-Action to Drive Comments</div>
+      <div class="reco-text">Zero comments across Facebook and LinkedIn is a strategic gap. End every post with a direct question ("What's your take on the EU–India FTA?", "How should India's youth engage globally?"). Comments signal algorithmic quality and extend organic reach. Even 5–10 comments per post would meaningfully improve distribution.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-num">04 —</div>
+      <div class="reco-title">Convert Instagram Viewers into Followers</div>
+      <div class="reco-text">With 81.4% of Instagram views coming from non-followers and net zero follower growth, there's a significant conversion failure. Use Instagram Stories to prompt "Follow for more India–Europe updates," create save-worthy content (infographics, key data), and ensure each post bio link and call-to-action is clear and updated.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-num">05 —</div>
+      <div class="reco-title">Create Content Bridges Between Platforms</div>
+      <div class="reco-text">The same event (e.g., Hamburg Trade Conference) should have platform-specific content: a detailed LinkedIn article, a visual carousel on Facebook, and a real-time Story series on Instagram. Currently posts appear to be cross-posted without platform optimization. Tailoring tone and format per platform will significantly improve performance across all three.</div>
+    </div>
+    <div class="reco-card">
+      <div class="reco-num">06 —</div>
+      <div class="reco-title">Leverage Germany Audience on Instagram</div>
+      <div class="reco-text">Germany is FNF India's 3rd-largest Instagram audience at 8.4% — strategically valuable. Content on EU–India relations, FNF Germany collaborations, and Indian diaspora in Germany should be explicitly targeted at this segment. Consider bilingual captions (English + German) for key posts, and tag FNF Germany (@fnf_de) to amplify reach into the German liberal network.</div>
+    </div>
+  </div>
+
+  <div class="matrix-row" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
+    <div class="chart-card">
+      <div class="chart-label">Priority Matrix</div>
+      <div class="chart-title">Platform Priority Matrix for Next Cycle</div>
+      <div class="chart-sub">Recommended investment priorities based on engagement quality, reach growth, and strategic alignment</div>
+      <div class="chart-container" style="height:340px">
+        <canvas id="priorityChart"></canvas>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div class="insight-card good">
+        <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><div class="insight-title">Maintain Event-led Content Rhythm</div></div>
+        <div class="insight-text">The single biggest driver of performance this period was real events with real stakeholders producing real content — not manufactured social media posts. The Europe Tour gave the team 3+ weeks of high-value, authentic content. Planning for the next major content window (upcoming programmes, publications, partnerships) should begin now.</div>
+      </div>
+      <div class="insight-card warn">
+        <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg></div><div class="insight-title">Set Up a Content Calendar for Between Events</div></div>
+        <div class="insight-text">Between major events, engagement dropped sharply across all platforms. A 4-week content calendar with planned themes (FNF India research, partner spotlights, policy explainers, youth voices) will ensure consistent posting and audience retention. Even 3 posts per week per platform (scheduled) would prevent the post-event dip.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-header"><div class="insight-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div><div class="insight-title">Consider Facebook Audience Recalibration</div></div>
+        <div class="insight-text">With 26.7% Pakistan and 16.7% Bangladesh audiences on Facebook — and content focused primarily on India–Europe policy — there may be a values-alignment gap worth addressing. If budget allows, running targeted paid posts to Indian policy and professional audiences could begin recalibrating the follower base toward the strategic target audience.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <p>Created and prepared by Tenzin Paljor, FNF India</p>
+  <img src="FNF Asia Logo - no_bg(cropped).png" alt="Friedrich Naumann Foundation for Freedom — India">
+  <div class="social-links">
+    <a href="https://www.facebook.com/FNFIndiaOffice" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+    <a href="https://www.instagram.com/fnfsouthasia" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a>
+    <a href="https://x.com/fnfindiaoffice" target="_blank" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    <a href="https://www.linkedin.com/company/14543884/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+  </div>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+Chart.defaults.color = '#888888';
+Chart.defaults.borderColor = 'rgba(0,0,0,0.06)';
+Chart.defaults.font.family = 'Roboto';
+Chart.defaults.font.size = 11;
+
+const gridOpts = { color: 'rgba(0,0,0,0.05)', drawBorder: false };
+
+// ── OVERVIEW COMPARE ──
+new Chart(document.getElementById('overviewCompare'), {
+  type: 'bar',
+  data: {
+    labels: ['Facebook Views', 'Instagram Views', 'LinkedIn Impressions'],
+    datasets: [{
+      data: [3843, 53800, 4610],
+      backgroundColor: ['rgba(51,90,143,0.75)', 'rgba(212,54,104,0.75)', 'rgba(42,184,158,0.75)'],
+      borderColor: ['#335A8F','#D43668','#2ab89e'],
+      borderWidth: 0, borderRadius: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: gridOpts, beginAtZero: true,
+        ticks: { callback: v => v >= 1000 ? (v/1000).toFixed(0)+'K' : v }
+      }
+    }
+  }
+});
+
+// ── FB CONTENT TYPE (overview donut) ──
+new Chart(document.getElementById('fbContentType'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Multi-photo','Photo','Reel','Link','Story','Multimedia'],
+    datasets: [{ data: [58.4,13.4,13,7.6,5.2,2.4],
+      backgroundColor:['#335A8F','#6889B0','#8499B0','#9DAAB8','#B8C3CE','#d6dce3'],
+      borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend: { position:'right', labels:{boxWidth:8, font:{size:10}, padding:8} } }
+  }
+});
+
+// ── IG CONTENT MIX ──
+new Chart(document.getElementById('igContentMix'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Stories (58)','Posts (13)'],
+    datasets: [{ data: [58,13],
+      backgroundColor:['#D43668','#DA96B4'],
+      borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend: { position:'right', labels:{boxWidth:8, padding:8} } }
+  }
+});
+
+// ── FOLLOWERS DONUT ──
+new Chart(document.getElementById('followersDonut'), {
+  type: 'doughnut',
+  data: {
+    labels: ['FB Followers','FB Non-followers','IG Non-followers','IG Followers'],
+    datasets: [{ data: [64.7,35.3,81.4,18.6],
+      backgroundColor:['#335A8F','#8499B0','#D43668','#DA96B4'],
+      borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend: { position:'right', labels:{boxWidth:8, font:{size:10}, padding:8} } }
+  }
+});
+
+// ── FB VIEWS CHART ──
+const fbDates = ['Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 29','Apr 30','May 1','May 2','May 3','May 4'];
+const fbViews = [40,20,25,60,80,30,50,30,320,290,150,100,80,60,250,370,90,230,270,180,430,250,200,140,80,60,190,200];
+const fbEngagement = [0,0,0,0,3,0,2,0,18,15,4,2,1,0,22,25,3,8,8,5,30,10,8,5,2,1,12,14];
+new Chart(document.getElementById('fbViewsChart'), {
+  type: 'line',
+  data: {
+    labels: fbDates,
+    datasets: [
+      { label:'Views', data:fbViews, borderColor:'#335A8F', backgroundColor:'rgba(51,90,143,0.06)', fill:true, tension:0.4, pointRadius:0, borderWidth:2 },
+      { label:'Engagement', data:fbEngagement, borderColor:'#D43668', backgroundColor:'transparent', fill:false, tension:0.4, pointRadius:0, borderWidth:2, yAxisID:'y2' }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend: { position:'top', labels:{boxWidth:10, padding:16} } },
+    scales: {
+      x: { grid:{display:false}, ticks:{maxRotation:45, font:{size:9}} },
+      y: { grid:gridOpts, beginAtZero:true, position:'left' },
+      y2: { grid:{display:false}, beginAtZero:true, position:'right', ticks:{color:'#D43668'} }
+    }
+  }
+});
+
+// ── FB CONTENT TYPE DETAIL ──
+new Chart(document.getElementById('fbContentTypeDetail'), {
+  type: 'bar',
+  data: {
+    labels: ['Multi-photo','Photo','Reel','Link','Story','Multimedia'],
+    datasets: [{
+      data: [58.4,13.4,13,7.6,5.2,2.4],
+      backgroundColor:['#335A8F','#6889B0','#8499B0','#9DAAB8','#B8C3CE','#d6dce3'],
+      borderRadius:3, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:gridOpts, beginAtZero:true, ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── FB FOLLOWER SPLIT ──
+new Chart(document.getElementById('fbFollowerSplit'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Followers (64.7%)','Non-followers (35.3%)'],
+    datasets: [{ data:[64.7,35.3], backgroundColor:['#335A8F','#B8C3CE'], borderWidth:0 }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend:{position:'bottom', labels:{boxWidth:10, padding:12}} }
+  }
+});
+
+// ── FB FOLLOW SOURCE ──
+new Chart(document.getElementById('fbFollowSource'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Posts (91.5%)','Reels (8.5%)'],
+    datasets: [{ data:[91.5,8.5], backgroundColor:['#335A8F','#8499B0'], borderWidth:0 }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend:{position:'bottom', labels:{boxWidth:10, padding:12}} }
+  }
+});
+
+// ── IG VIEWS CHART ──
+const igDates = ['Apr 6','Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 29','Apr 30','May 1','May 2','May 3'];
+const igViews = [800,600,500,400,500,600,700,8000,1200,900,700,500,400,600,1500,3100,7000,5000,4500,3800,3200,4100,3800,2200,1800,1200,900,700];
+new Chart(document.getElementById('igViewsChart'), {
+  type: 'line',
+  data: {
+    labels: igDates,
+    datasets: [{
+      label:'Views', data:igViews,
+      borderColor:'#D43668', backgroundColor:'rgba(212,54,104,0.06)',
+      fill:true, tension:0.4, pointRadius:0, borderWidth:2
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend:{display:false} },
+    scales: {
+      x: { grid:{display:false}, ticks:{maxRotation:45, font:{size:9}} },
+      y: { grid:gridOpts, beginAtZero:true, ticks:{callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v} }
+    }
+  }
+});
+
+// ── IG AUDIENCE SPLIT ──
+new Chart(document.getElementById('igAudienceSplit'), {
+  type: 'bar',
+  data: {
+    labels: ['Views','Reach','Interactions'],
+    datasets: [
+      { label:'From Followers', data:[18.6,7.2,31], backgroundColor:'rgba(212,54,104,0.8)', borderRadius:3 },
+      { label:'From Non-Followers', data:[81.4,92.8,69], backgroundColor:'rgba(212,54,104,0.18)', borderRadius:3 }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins: { legend:{position:'top', labels:{boxWidth:10, padding:14}} },
+    scales: {
+      x: { grid:{display:false}, stacked:true },
+      y: { grid:gridOpts, stacked:true, ticks:{callback:v=>v+'%'} }
+    }
+  }
+});
+
+// ── IG CONTENT VOL ──
+new Chart(document.getElementById('igContentVol'), {
+  type: 'bar',
+  data: {
+    labels: ['Stories','Posts'],
+    datasets: [{
+      data:[58,13],
+      backgroundColor:['#D43668','#DA96B4'],
+      borderRadius:3, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:gridOpts, beginAtZero:true}
+    }
+  }
+});
+
+// ── IG REACH SPLIT ──
+new Chart(document.getElementById('igReachSplit'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Non-followers (7,455)','Followers (576)'],
+    datasets: [{data:[7455,576], backgroundColor:['#D43668','#DA96B4'], borderWidth:0}]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'bottom', labels:{boxWidth:10, padding:12}}}
+  }
+});
+
+// ── LI IMPRESSIONS CHART ──
+const liDates = ['Apr 4','Apr 5','Apr 6','Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 29','Apr 30','May 1','May 2','May 3'];
+const liImpr = [21,34,56,59,21,36,31,57,11,26,36,440,34,24,24,26,38,298,154,110,185,252,152,515,294,777,446,186,175,178];
+const liClicks = [0,0,13,24,0,0,1,118,0,1,1,144,14,1,4,3,3,165,78,51,145,104,89,203,87,211,81,63,45,48];
+new Chart(document.getElementById('liImpressionsChart'), {
+  type: 'line',
+  data: {
+    labels: liDates,
+    datasets: [
+      { label:'Impressions', data:liImpr, borderColor:'#2ab89e', backgroundColor:'rgba(42,184,158,0.06)', fill:true, tension:0.4, pointRadius:0, borderWidth:2 },
+      { label:'Clicks', data:liClicks, borderColor:'#D43668', backgroundColor:'transparent', fill:false, tension:0.4, pointRadius:0, borderWidth:2, yAxisID:'y2' }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{position:'top', labels:{boxWidth:10, padding:14}}},
+    scales:{
+      x:{grid:{display:false}, ticks:{maxRotation:45, font:{size:9}}},
+      y:{grid:gridOpts, beginAtZero:true, position:'left'},
+      y2:{grid:{display:false}, beginAtZero:true, position:'right', ticks:{color:'#D43668'}}
+    }
+  }
+});
+
+// ── LI ENGAGEMENT RATE ──
+const liEngRates = [0,0,0.25,0.407,0,0,0.032,2.07,0,0.038,0.028,0.332,0.412,0.083,0.167,0.115,0.079,0.581,0.539,0.518,0.849,0.437,0.618,0.423,0.32,0.306,0.202,0.36,0.257,0.281];
+new Chart(document.getElementById('liEngRate'), {
+  type: 'bar',
+  data: {
+    labels: liDates,
+    datasets: [{
+      label:'Engagement Rate (%)', data:liEngRates,
+      backgroundColor: liEngRates.map(v => v > 0.5 ? 'rgba(42,184,158,0.8)' : v > 0.2 ? 'rgba(212,54,104,0.55)' : 'rgba(51,90,143,0.3)'),
+      borderRadius:2, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}, ticks:{maxRotation:45, font:{size:9}}},
+      y:{grid:gridOpts, beginAtZero:true, ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── LI REACTIONS ──
+const liReact = [0,0,1,0,0,0,0,0,0,0,0,2,0,1,0,0,0,8,5,6,12,6,5,15,7,26,9,4,0,2];
+new Chart(document.getElementById('liReactions'), {
+  type: 'bar',
+  data: {
+    labels: liDates,
+    datasets: [{
+      label:'Reactions', data:liReact,
+      backgroundColor:'rgba(42,184,158,0.7)', borderRadius:2, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}, ticks:{maxRotation:45, font:{size:9}}},
+      y:{grid:gridOpts, beginAtZero:true}
+    }
+  }
+});
+
+// ── AGE CHARTS ──
+const ageLabels = ['18–24','25–34','35–44','45–54','55–64','65+'];
+new Chart(document.getElementById('fbAgeChart'), {
+  type: 'bar',
+  data: {
+    labels: ageLabels,
+    datasets: [{
+      label:'% of audience', data:[4,50.8,29.2,9.7,3.9,2.4],
+      backgroundColor:'rgba(51,90,143,0.75)', borderRadius:3, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:gridOpts, beginAtZero:true, ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+new Chart(document.getElementById('igAgeChart'), {
+  type: 'bar',
+  data: {
+    labels: ageLabels,
+    datasets: [{
+      label:'% of audience', data:[15,55,22,5,2,1],
+      backgroundColor:'rgba(212,54,104,0.75)', borderRadius:3, borderWidth:0
+    }]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{grid:{display:false}},
+      y:{grid:gridOpts, beginAtZero:true, ticks:{callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── PRIORITY RADAR ──
+new Chart(document.getElementById('priorityChart'), {
+  type: 'radar',
+  data: {
+    labels: ['Reach Growth','Engagement Quality','Strategic Alignment','Content Momentum','Audience Fit','Conversion Potential'],
+    datasets: [
+      { label:'Facebook', data:[3,4,5,5,4,3], borderColor:'#335A8F', backgroundColor:'rgba(51,90,143,0.08)', pointBackgroundColor:'#335A8F', borderWidth:2, pointRadius:3 },
+      { label:'Instagram', data:[8,6,7,8,7,5], borderColor:'#D43668', backgroundColor:'rgba(212,54,104,0.08)', pointBackgroundColor:'#D43668', borderWidth:2, pointRadius:3 },
+      { label:'LinkedIn', data:[6,9,9,7,8,7], borderColor:'#2ab89e', backgroundColor:'rgba(42,184,158,0.06)', pointBackgroundColor:'#2ab89e', borderWidth:2, pointRadius:3 }
+    ]
+  },
+  options: { responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{position:'top', labels:{boxWidth:10, padding:16}} },
+    scales:{ r:{ min:0, max:10, grid:{color:'rgba(0,0,0,0.06)'}, ticks:{display:false}, pointLabels:{font:{size:11}} } }
+  }
+});
+</script>
+</body>
+</html>
